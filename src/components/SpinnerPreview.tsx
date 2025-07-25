@@ -184,13 +184,43 @@ const SpinnerPreview: React.FC<SpinnerPreviewProps> = ({
           <div
             className="spinner-hourglass"
             style={{
-              ...commonStyle,
-              borderWidth: `${strokeWidth}px`,
-              borderColor: primaryColor,
-              borderTopColor: 'transparent',
-              borderBottomColor: 'transparent',
+              width: `${size}px`,
+              height: `${size * 1.4}px`,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
-          />
+          >
+            <svg
+              width={size}
+              height={size * 1.4}
+              viewBox="0 0 40 56"
+              style={{ display: 'block' }}
+            >
+              {/* Hourglass outline */}
+              <path
+                d="M10,2 Q20,28 10,54 M30,2 Q20,28 30,54 M10,2 H30 M10,54 H30"
+                fill="none"
+                stroke={primaryColor}
+                strokeWidth={strokeWidth}
+                strokeLinejoin="round"
+              />
+              {/* Animated sand dot */}
+              <circle
+                cx="20"
+                r="2.5"
+                fill={primaryColor}
+              >
+                <animate
+                  attributeName="cy"
+                  values="12;44;12"
+                  keyTimes="0;0.5;1"
+                  dur={`${speed}s`}
+                  repeatCount="indefinite"
+                />
+              </circle>
+            </svg>
+          </div>
         );
       case 'fading-circle': {
         const dotCount = 12;
