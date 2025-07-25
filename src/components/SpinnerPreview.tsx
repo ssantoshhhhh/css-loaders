@@ -133,6 +133,94 @@ const SpinnerPreview: React.FC<SpinnerPreviewProps> = ({
           />
         );
 
+      case 'dual-ring':
+        return (
+          <div
+            className="spinner-dual-ring"
+            style={{
+              ...commonStyle,
+              borderWidth: `${strokeWidth}px`,
+              borderColor: `${primaryColor} transparent ${secondaryColor} transparent`,
+            }}
+          />
+        );
+      case 'ellipsis': {
+        const dotSize = size / 6;
+        return (
+          <div className="spinner-ellipsis" style={{ width: `${size}px`, height: `${dotSize * 1.5}px` }}>
+            {[0, 1, 2, 3].map(i => (
+              <div
+                key={i}
+                style={{
+                  width: `${dotSize}px`,
+                  height: `${dotSize}px`,
+                  margin: `0 ${dotSize / 4}px`,
+                  background: primaryColor,
+                }}
+              />
+            ))}
+          </div>
+        );
+      }
+      case 'ripple': {
+        const border = Math.max(2, strokeWidth);
+        return (
+          <div className="spinner-ripple" style={{ ...commonStyle }}>
+            <div style={{ borderWidth: `${border}px`, borderColor: primaryColor, width: '100%', height: '100%' }} />
+            <div style={{ borderWidth: `${border}px`, borderColor: secondaryColor, width: '100%', height: '100%' }} />
+          </div>
+        );
+      }
+      case 'heart-beat':
+        return (
+          <div className="spinner-heart-beat" style={{ ...commonStyle }}>
+            <svg viewBox="0 0 32 29.6" width={size} height={size} style={{ display: 'block' }}>
+              <path d="M23.6,0c-2.7,0-5.1,1.3-6.6,3.3C15.5,1.3,13.1,0,10.4,0C4.7,0,0,4.7,0,10.4c0,6.1,5.5,11.1,13.8,18.3l2.2,2l2.2-2 C26.5,21.5,32,16.5,32,10.4C32,4.7,27.3,0,23.6,0z" fill={primaryColor} />
+            </svg>
+          </div>
+        );
+      case 'hourglass':
+        return (
+          <div
+            className="spinner-hourglass"
+            style={{
+              ...commonStyle,
+              borderWidth: `${strokeWidth}px`,
+              borderColor: primaryColor,
+              borderTopColor: 'transparent',
+              borderBottomColor: 'transparent',
+            }}
+          />
+        );
+      case 'fading-circle': {
+        const dotCount = 12;
+        const dots = Array.from({ length: dotCount });
+        const r = size / 2 - size / 10;
+        const dotSize = size / 5;
+        return (
+          <div className="spinner-fading-circle" style={{ width: `${size}px`, height: `${size}px` }}>
+            {dots.map((_, i) => {
+              const angle = (i * 360) / dotCount;
+              const rad = (angle * Math.PI) / 180;
+              const x = r * Math.cos(rad) + size / 2 - dotSize / 2;
+              const y = r * Math.sin(rad) + size / 2 - dotSize / 2;
+              return (
+                <div
+                  key={i}
+                  style={{
+                    width: `${dotSize}px`,
+                    height: `${dotSize}px`,
+                    left: `${x}px`,
+                    top: `${y}px`,
+                    background: primaryColor,
+                  }}
+                />
+              );
+            })}
+          </div>
+        );
+      }
+
       default:
         return (
           <div

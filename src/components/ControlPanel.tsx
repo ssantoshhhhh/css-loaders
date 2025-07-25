@@ -24,7 +24,13 @@ const spinnerTypes = [
   { value: 'spinning-square', label: 'Spinning Square' },
   { value: 'bouncing-bars', label: 'Bouncing Bars' },
   { value: 'multi-ring', label: 'Multi Ring' },
-  { value: 'gradient-ring', label: 'Gradient Ring' }
+  { value: 'gradient-ring', label: 'Gradient Ring' },
+  { value: 'dual-ring', label: 'Dual Ring' },
+  { value: 'ellipsis', label: 'Ellipsis' },
+  { value: 'ripple', label: 'Ripple' },
+  { value: 'heart-beat', label: 'Heart Beat' },
+  { value: 'hourglass', label: 'Hourglass' },
+  { value: 'fading-circle', label: 'Fading Circle' }
 ];
 
 const ControlPanel: React.FC<ControlPanelProps> = ({
