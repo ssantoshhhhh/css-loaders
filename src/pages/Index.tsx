@@ -109,7 +109,7 @@ const Index = () => {
             <p className="mt-4">
               Made by{' '}
               <a
-                href="https://your-portfolio-url.com"
+                href="https://santosh-galaxy-portfolio.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline transition-colors"
