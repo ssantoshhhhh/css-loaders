@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Settings, Code, Palette } from 'lucide-react';
+import { Settings, Code, Palette, Github } from 'lucide-react';
 import SpinnerPreview from '@/components/SpinnerPreview';
 import ControlPanel from '@/components/ControlPanel';
 import CodeExport from '@/components/CodeExport';
@@ -25,6 +25,19 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground">Create beautiful CSS loading spinners</p>
               </div>
             </div>
+            
+            {/* Center GitHub Icon */}
+            <div className="absolute left-1/2 transform -translate-x-1/2">
+              <a
+                href="https://github.com/ssantoshhhhh/css-loaders.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group hover:text-primary transition-colors"
+              >
+                <Github className="h-6 w-6 animate-spin group-hover:animate-none" />
+              </a>
+            </div>
+            
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Code className="h-4 w-4" />
               <span>Pure HTML 5 & CSS 3 • No JavaScript</span>
@@ -93,6 +106,17 @@ const Index = () => {
           <div className="text-center text-sm text-muted-foreground">
             <p>Build amazing loading experiences with pure CSS animations</p>
             <p className="mt-2">All spinners are framework-agnostic and work everywhere</p>
+            <p className="mt-4">
+              Made by{' '}
+              <a
+                href="https://your-portfolio-url.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline transition-colors"
+              >
+                SANTOSH
+              </a>
+            </p>
           </div>
         </footer>
       </div>
