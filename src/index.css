@@ -288,20 +288,7 @@
     40% { opacity: 1; }
   }
 
-  /* Loading Text Spinner */
-  .spinner-loading-text {
-    display: inline-block;
-    font-family: monospace;
-    font-weight: bold;
-    animation: loading-text 2s infinite;
-  }
-  @keyframes loading-text {
-    0% { content: "LOADING"; }
-    25% { content: "LOADING."; }
-    50% { content: "LOADING.."; }
-    75% { content: "LOADING..."; }
-    100% { content: "LOADING"; }
-  }
+
 
   /* Loading Text Glitch Effect */
   .spinner-loading-text-glitch {
@@ -391,25 +378,6 @@
   @keyframes text-bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
-  }
-
-  /* Loading Text Typing Effect */
-  .spinner-loading-text-typing {
-    display: inline-block;
-    font-family: monospace;
-    font-weight: bold;
-    overflow: hidden;
-    border-right: 2px solid;
-    white-space: nowrap;
-    animation: typing 3s steps(8) infinite, blink 1s infinite;
-  }
-  @keyframes typing {
-    0%, 90%, 100% { width: 0; }
-    30%, 60% { width: 100%; }
-  }
-  @keyframes blink {
-    0%, 50% { border-color: transparent; }
-    51%, 100% { border-color: currentColor; }
   }
 
   /* Loading Text Neon Effect */

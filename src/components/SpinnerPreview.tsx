@@ -250,18 +250,7 @@ const SpinnerPreview: React.FC<SpinnerPreviewProps> = ({
           </div>
         );
       }
-      case 'loading-text':
-        return (
-          <div
-            className="spinner-loading-text"
-            style={{
-              color: primaryColor,
-              fontSize: `${size / 4}px`,
-            }}
-          >
-            L O A D I N G
-          </div>
-        );
+
       case 'loading-text-glitch':
         return (
           <div
@@ -290,18 +279,6 @@ const SpinnerPreview: React.FC<SpinnerPreviewProps> = ({
         return (
           <div
             className="spinner-loading-text-bounce"
-            style={{
-              color: primaryColor,
-              fontSize: `${size / 4}px`,
-            }}
-          >
-            L O A D I N G
-          </div>
-        );
-      case 'loading-text-typing':
-        return (
-          <div
-            className="spinner-loading-text-typing"
             style={{
               color: primaryColor,
               fontSize: `${size / 4}px`,

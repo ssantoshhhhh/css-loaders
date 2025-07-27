@@ -278,22 +278,7 @@ const CodeExport: React.FC<CodeExportProps> = ({
 .spinner div:nth-child(10) { top: ${Math.floor(size*0.09)}px; left: ${Math.floor(size*0.09)}px; animation-delay: -0.9s; }
 .spinner div:nth-child(11) { top: 0; left: ${Math.floor(size*0.31)}px; animation-delay: -1.0s; }
 .spinner div:nth-child(12) { top: 0; left: ${Math.floor(size*0.59)}px; animation-delay: -1.1s; }`,
-      'loading-text': `
-@keyframes loading-text {
-  0% { content: "L O A D I N G"; }
-  25% { content: "L O A D I N G."; }
-  50% { content: "L O A D I N G.."; }
-  75% { content: "L O A D I N G..."; }
-  100% { content: "L O A D I N G"; }
-}
-.spinner {
-  display: inline-block;
-  font-family: monospace;
-  font-weight: bold;
-  font-size: ${Math.floor(size/4)}px;
-  color: ${primaryColor};
-  animation: loading-text ${speed}s infinite;
-}`,
+      
       'loading-text-glitch': `
 @keyframes glitch {
   0%, 100% { transform: translate(0); }
@@ -361,39 +346,19 @@ const CodeExport: React.FC<CodeExportProps> = ({
   background-clip: text;
   animation: rainbow ${speed}s ease-in-out infinite;
 }`,
-      'loading-text-bounce': `
-@keyframes text-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-.spinner {
-  display: inline-block;
-  font-family: monospace;
-  font-weight: bold;
-  font-size: ${Math.floor(size/4)}px;
-  color: ${primaryColor};
-  animation: text-bounce ${speed}s ease-in-out infinite;
-}`,
-      'loading-text-typing': `
-@keyframes typing {
-  0%, 90%, 100% { width: 0; }
-  30%, 60% { width: 100%; }
-}
-@keyframes blink {
-  0%, 50% { border-color: transparent; }
-  51%, 100% { border-color: currentColor; }
-}
-.spinner {
-  display: inline-block;
-  font-family: monospace;
-  font-weight: bold;
-  font-size: ${Math.floor(size/4)}px;
-  color: ${primaryColor};
-  overflow: hidden;
-  border-right: 2px solid;
-  white-space: nowrap;
-  animation: typing ${speed * 3}s steps(8) infinite, blink 1s infinite;
-}`,
+              'loading-text-bounce': `
+  @keyframes text-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .spinner {
+    display: inline-block;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: ${Math.floor(size/4)}px;
+    color: ${primaryColor};
+    animation: text-bounce ${speed}s ease-in-out infinite;
+  }`,
       'loading-text-matrix': `
 @keyframes matrix {
   0%, 100% { opacity: 1; }
@@ -616,12 +581,11 @@ const CodeExport: React.FC<CodeExportProps> = ({
       'heart-beat': `<div class="spinner"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-2.7,0-5.1,1.3-6.6,3.3C15.5,1.3,13.1,0,10.4,0C4.7,0,0,4.7,0,10.4c0,6.1,5.5,11.1,13.8,18.3l2.2,2l2.2-2C26.5,21.5,32,16.5,32,10.4C32,4.7,27.3,0,23.6,0z"></path></svg></div>`,
       'hourglass': '<div class="spinner"></div>',
       'fading-circle': `<div class="spinner">${Array.from({length:12}).map(()=>'<div></div>').join('')}</div>`,
-      'loading-text': `<div class="spinner">L O A D I N G</div>`,
+      
       'loading-text-glitch': `<div class="spinner">L O A D I N G</div>`,
       'loading-text-rainbow': `<div class="spinner">L O A D I N G</div>`,
-      'loading-text-bounce': `<div class="spinner">L O A D I N G</div>`,
-      'loading-text-typing': `<div class="spinner">L O A D I N G</div>`,
-      'loading-text-matrix': `<div class="spinner">L O A D I N G</div>`,
+              'loading-text-bounce': `<div class="spinner">L O A D I N G</div>`,
+        'loading-text-matrix': `<div class="spinner">L O A D I N G</div>`,
       'loading-text-neon': `<div class="spinner">L O A D I N G</div>`,
       'loading-text-shake': `<div class="spinner">L O A D I N G</div>`,
       'loading-text-zoom': `<div class="spinner">L O A D I N G</div>`,
