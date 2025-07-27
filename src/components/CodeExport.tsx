@@ -277,7 +277,317 @@ const CodeExport: React.FC<CodeExportProps> = ({
 .spinner div:nth-child(9) { top: ${Math.floor(size*0.31)}px; left: 0; animation-delay: -0.8s; }
 .spinner div:nth-child(10) { top: ${Math.floor(size*0.09)}px; left: ${Math.floor(size*0.09)}px; animation-delay: -0.9s; }
 .spinner div:nth-child(11) { top: 0; left: ${Math.floor(size*0.31)}px; animation-delay: -1.0s; }
-.spinner div:nth-child(12) { top: 0; left: ${Math.floor(size*0.59)}px; animation-delay: -1.1s; }`
+.spinner div:nth-child(12) { top: 0; left: ${Math.floor(size*0.59)}px; animation-delay: -1.1s; }`,
+      'loading-text': `
+@keyframes loading-text {
+  0% { content: "L O A D I N G"; }
+  25% { content: "L O A D I N G."; }
+  50% { content: "L O A D I N G.."; }
+  75% { content: "L O A D I N G..."; }
+  100% { content: "L O A D I N G"; }
+}
+.spinner {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: ${Math.floor(size/4)}px;
+  color: ${primaryColor};
+  animation: loading-text ${speed}s infinite;
+}`,
+      'loading-text-glitch': `
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(-2px, 2px); }
+}
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+.spinner {
+  position: relative;
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: ${Math.floor(size/4)}px;
+  color: ${primaryColor};
+  animation: glitch ${speed}s infinite;
+}
+.spinner::before,
+.spinner::after {
+  content: "L O A D I N G";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.spinner::before {
+  animation: glitch-1 0.5s infinite;
+  color: #ff0000;
+  z-index: -1;
+}
+.spinner::after {
+  animation: glitch-2 0.5s infinite;
+  color: #00ffff;
+  z-index: -2;
+}`,
+      'loading-text-rainbow': `
+@keyframes rainbow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.spinner {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: ${Math.floor(size/4)}px;
+  background: linear-gradient(45deg, ${primaryColor}, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow ${speed}s ease-in-out infinite;
+}`,
+      'loading-text-bounce': `
+@keyframes text-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.spinner {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: ${Math.floor(size/4)}px;
+  color: ${primaryColor};
+  animation: text-bounce ${speed}s ease-in-out infinite;
+}`,
+      'loading-text-typing': `
+@keyframes typing {
+  0%, 90%, 100% { width: 0; }
+  30%, 60% { width: 100%; }
+}
+@keyframes blink {
+  0%, 50% { border-color: transparent; }
+  51%, 100% { border-color: currentColor; }
+}
+.spinner {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: ${Math.floor(size/4)}px;
+  color: ${primaryColor};
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+  animation: typing ${speed * 3}s steps(8) infinite, blink 1s infinite;
+}`,
+      'loading-text-matrix': `
+@keyframes matrix {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.spinner {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: ${Math.floor(size/4)}px;
+  color: ${primaryColor};
+  text-shadow: 0 0 10px ${primaryColor};
+  animation: matrix ${speed}s infinite;
+}`,
+      'loading-text-neon': `
+@keyframes neon {
+  0% { text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor, 0 0 20px currentColor; }
+  100% { text-shadow: 0 0 2px currentColor, 0 0 4px currentColor, 0 0 6px currentColor, 0 0 8px currentColor; }
+}
+.spinner {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: ${Math.floor(size/4)}px;
+  color: ${primaryColor};
+  text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor, 0 0 20px currentColor;
+  animation: neon ${speed}s ease-in-out infinite alternate;
+}`,
+      'loading-text-shake': `
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+.spinner {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: ${Math.floor(size/4)}px;
+  color: ${primaryColor};
+  animation: shake ${speed}s ease-in-out infinite;
+}`,
+      'loading-text-zoom': `
+@keyframes text-zoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+.spinner {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: ${Math.floor(size/4)}px;
+  color: ${primaryColor};
+  animation: text-zoom ${speed}s ease-in-out infinite;
+}`,
+      'progress-bar': `
+@keyframes progress-bar {
+  0% { left: -30%; }
+  100% { left: 100%; }
+}
+.spinner {
+  width: ${size}px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.spinner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  background: ${primaryColor};
+  border-radius: 4px;
+  animation: progress-bar ${speed}s ease-in-out infinite;
+}`,
+      'progress-dots': `
+@keyframes progress-dots {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+.spinner {
+  display: flex;
+  gap: 8px;
+}
+.spinner div {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: ${primaryColor};
+  animation: progress-dots ${speed}s ease-in-out infinite both;
+}
+.spinner div:nth-child(1) { animation-delay: -0.32s; }
+.spinner div:nth-child(2) { animation-delay: -0.16s; }
+.spinner div:nth-child(3) { animation-delay: 0s; }`,
+      'progress-steps': `
+@keyframes progress-steps {
+  0%, 40%, 100% { transform: scaleY(0.4); }
+  20% { transform: scaleY(1); }
+}
+.spinner {
+  display: flex;
+  gap: 4px;
+}
+.spinner div {
+  width: 8px;
+  height: 20px;
+  background: ${primaryColor};
+  border-radius: 2px;
+  animation: progress-steps ${speed}s ease-in-out infinite;
+}
+.spinner div:nth-child(1) { animation-delay: 0s; }
+.spinner div:nth-child(2) { animation-delay: 0.1s; }
+.spinner div:nth-child(3) { animation-delay: 0.2s; }
+.spinner div:nth-child(4) { animation-delay: 0.3s; }
+.spinner div:nth-child(5) { animation-delay: 0.4s; }`,
+      'loading-dots': `
+@keyframes loading-dots {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+.spinner {
+  display: flex;
+  gap: 6px;
+}
+.spinner div {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: ${primaryColor};
+  animation: loading-dots ${speed}s ease-in-out infinite both;
+}
+.spinner div:nth-child(1) { animation-delay: -0.32s; }
+.spinner div:nth-child(2) { animation-delay: -0.16s; }
+.spinner div:nth-child(3) { animation-delay: 0s; }`,
+      'loading-bars': `
+@keyframes loading-bars {
+  0%, 40%, 100% { transform: scaleY(0.4); }
+  20% { transform: scaleY(1); }
+}
+.spinner {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: ${size}px;
+}
+.spinner div {
+  width: 4px;
+  background: ${primaryColor};
+  border-radius: 2px;
+  animation: loading-bars ${speed}s ease-in-out infinite;
+}
+.spinner div:nth-child(1) { height: ${Math.floor(size*0.3)}px; animation-delay: 0s; }
+.spinner div:nth-child(2) { height: ${Math.floor(size*0.6)}px; animation-delay: 0.1s; }
+.spinner div:nth-child(3) { height: ${size}px; animation-delay: 0.2s; }
+.spinner div:nth-child(4) { height: ${Math.floor(size*0.6)}px; animation-delay: 0.3s; }
+.spinner div:nth-child(5) { height: ${Math.floor(size*0.3)}px; animation-delay: 0.4s; }`,
+      'loading-pulse': `
+@keyframes loading-pulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+.spinner {
+  display: inline-block;
+  width: ${Math.floor(size/3)}px;
+  height: ${Math.floor(size/3)}px;
+  border-radius: 50%;
+  background: ${primaryColor};
+  animation: loading-pulse ${speed}s ease-in-out infinite;
+}`,
+      'loading-wave': `
+@keyframes loading-wave {
+  0%, 40%, 100% { transform: scaleY(0.4); }
+  20% { transform: scaleY(1); }
+}
+.spinner {
+  display: flex;
+  gap: 4px;
+  height: ${size}px;
+}
+.spinner div {
+  width: 4px;
+  background: ${primaryColor};
+  border-radius: 2px;
+  animation: loading-wave ${speed}s ease-in-out infinite;
+}
+.spinner div:nth-child(1) { height: ${Math.floor(size*0.3)}px; animation-delay: 0s; }
+.spinner div:nth-child(2) { height: ${Math.floor(size*0.6)}px; animation-delay: 0.1s; }
+.spinner div:nth-child(3) { height: ${size}px; animation-delay: 0.2s; }
+.spinner div:nth-child(4) { height: ${Math.floor(size*0.6)}px; animation-delay: 0.3s; }
+.spinner div:nth-child(5) { height: ${Math.floor(size*0.3)}px; animation-delay: 0.4s; }`
     };
 
     return animations[spinnerType as keyof typeof animations] || animations['rotating-circle'];
@@ -306,6 +616,48 @@ const CodeExport: React.FC<CodeExportProps> = ({
       'heart-beat': `<div class="spinner"><svg viewBox="0 0 32 29.6"><path d="M23.6,0c-2.7,0-5.1,1.3-6.6,3.3C15.5,1.3,13.1,0,10.4,0C4.7,0,0,4.7,0,10.4c0,6.1,5.5,11.1,13.8,18.3l2.2,2l2.2-2C26.5,21.5,32,16.5,32,10.4C32,4.7,27.3,0,23.6,0z"></path></svg></div>`,
       'hourglass': '<div class="spinner"></div>',
       'fading-circle': `<div class="spinner">${Array.from({length:12}).map(()=>'<div></div>').join('')}</div>`,
+      'loading-text': `<div class="spinner">L O A D I N G</div>`,
+      'loading-text-glitch': `<div class="spinner">L O A D I N G</div>`,
+      'loading-text-rainbow': `<div class="spinner">L O A D I N G</div>`,
+      'loading-text-bounce': `<div class="spinner">L O A D I N G</div>`,
+      'loading-text-typing': `<div class="spinner">L O A D I N G</div>`,
+      'loading-text-matrix': `<div class="spinner">L O A D I N G</div>`,
+      'loading-text-neon': `<div class="spinner">L O A D I N G</div>`,
+      'loading-text-shake': `<div class="spinner">L O A D I N G</div>`,
+      'loading-text-zoom': `<div class="spinner">L O A D I N G</div>`,
+      'progress-bar': `<div class="spinner"><div></div></div>`,
+      'progress-dots': `<div class="spinner">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>`,
+      'progress-steps': `<div class="spinner">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>`,
+      'loading-dots': `<div class="spinner">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>`,
+      'loading-bars': `<div class="spinner">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>`,
+      'loading-pulse': `<div class="spinner"></div>`,
+      'loading-wave': `<div class="spinner">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>`
     };
 
     return htmlStructures[spinnerType as keyof typeof htmlStructures] || htmlStructures['rotating-circle'];

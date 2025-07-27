@@ -30,7 +30,23 @@ const spinnerTypes = [
   { value: 'ripple', label: 'Ripple' },
   { value: 'heart-beat', label: 'Heart Beat' },
   { value: 'hourglass', label: 'Hourglass' },
-  { value: 'fading-circle', label: 'Fading Circle' }
+  { value: 'fading-circle', label: 'Fading Circle' },
+  { value: 'loading-text', label: 'Loading Text' },
+  { value: 'loading-text-glitch', label: 'Loading Text Glitch' },
+  { value: 'loading-text-rainbow', label: 'Loading Text Rainbow' },
+  { value: 'loading-text-bounce', label: 'Loading Text Bounce' },
+  { value: 'loading-text-typing', label: 'Loading Text Typing' },
+  { value: 'loading-text-matrix', label: 'Loading Text Matrix' },
+  { value: 'loading-text-neon', label: 'Loading Text Neon' },
+  { value: 'loading-text-shake', label: 'Loading Text Shake' },
+  { value: 'loading-text-zoom', label: 'Loading Text Zoom' },
+  { value: 'progress-bar', label: 'Progress Bar' },
+  { value: 'progress-dots', label: 'Progress Dots' },
+  { value: 'progress-steps', label: 'Progress Steps' },
+  { value: 'loading-dots', label: 'Loading Dots' },
+  { value: 'loading-bars', label: 'Loading Bars' },
+  { value: 'loading-pulse', label: 'Loading Pulse' },
+  { value: 'loading-wave', label: 'Loading Wave' }
 ];
 
 const ControlPanel: React.FC<ControlPanelProps> = ({

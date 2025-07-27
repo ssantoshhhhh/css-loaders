@@ -250,6 +250,182 @@ const SpinnerPreview: React.FC<SpinnerPreviewProps> = ({
           </div>
         );
       }
+      case 'loading-text':
+        return (
+          <div
+            className="spinner-loading-text"
+            style={{
+              color: primaryColor,
+              fontSize: `${size / 4}px`,
+            }}
+          >
+            L O A D I N G
+          </div>
+        );
+      case 'loading-text-glitch':
+        return (
+          <div
+            className="spinner-loading-text-glitch"
+            style={{
+              color: primaryColor,
+              fontSize: `${size / 4}px`,
+            }}
+          >
+            L O A D I N G
+          </div>
+        );
+      case 'loading-text-rainbow':
+        return (
+          <div
+            className="spinner-loading-text-rainbow"
+            style={{
+              fontSize: `${size / 4}px`,
+              '--primary-color': primaryColor,
+            } as React.CSSProperties}
+          >
+            L O A D I N G
+          </div>
+        );
+      case 'loading-text-bounce':
+        return (
+          <div
+            className="spinner-loading-text-bounce"
+            style={{
+              color: primaryColor,
+              fontSize: `${size / 4}px`,
+            }}
+          >
+            L O A D I N G
+          </div>
+        );
+      case 'loading-text-typing':
+        return (
+          <div
+            className="spinner-loading-text-typing"
+            style={{
+              color: primaryColor,
+              fontSize: `${size / 4}px`,
+            }}
+          >
+            L O A D I N G
+          </div>
+        );
+      case 'loading-text-matrix':
+        return (
+          <div
+            className="spinner-loading-text-matrix"
+            style={{
+              fontSize: `${size / 4}px`,
+              color: primaryColor,
+              textShadow: `0 0 10px ${primaryColor}`,
+            }}
+          >
+            L O A D I N G
+          </div>
+        );
+      case 'loading-text-neon':
+        return (
+          <div
+            className="spinner-loading-text-neon"
+            style={{
+              color: primaryColor,
+              fontSize: `${size / 4}px`,
+            }}
+          >
+            L O A D I N G
+          </div>
+        );
+      case 'loading-text-shake':
+        return (
+          <div
+            className="spinner-loading-text-shake"
+            style={{
+              color: primaryColor,
+              fontSize: `${size / 4}px`,
+            }}
+          >
+            L O A D I N G
+          </div>
+        );
+      case 'loading-text-zoom':
+        return (
+          <div
+            className="spinner-loading-text-zoom"
+            style={{
+              color: primaryColor,
+              fontSize: `${size / 4}px`,
+            }}
+          >
+            L O A D I N G
+          </div>
+        );
+      case 'progress-bar':
+        return (
+          <div
+            className="spinner-progress-bar"
+            style={{
+              width: `${size}px`,
+              color: primaryColor,
+            }}
+          />
+        );
+      case 'progress-dots':
+        return (
+          <div className="spinner-progress-dots" style={{ color: primaryColor }}>
+            <div />
+            <div />
+            <div />
+          </div>
+        );
+      case 'progress-steps':
+        return (
+          <div className="spinner-progress-steps" style={{ color: primaryColor }}>
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        );
+      case 'loading-dots':
+        return (
+          <div className="spinner-loading-dots" style={{ color: primaryColor }}>
+            <div />
+            <div />
+            <div />
+          </div>
+        );
+      case 'loading-bars':
+        return (
+          <div className="spinner-loading-bars" style={{ color: primaryColor, height: `${size}px` }}>
+            <div style={{ height: `${size * 0.3}px` }} />
+            <div style={{ height: `${size * 0.6}px` }} />
+            <div style={{ height: `${size}px` }} />
+            <div style={{ height: `${size * 0.6}px` }} />
+            <div style={{ height: `${size * 0.3}px` }} />
+          </div>
+        );
+      case 'loading-pulse':
+        return (
+          <div
+            className="spinner-loading-pulse"
+            style={{
+              color: primaryColor,
+              width: `${size / 3}px`,
+              height: `${size / 3}px`,
+            }}
+          />
+        );
+      case 'loading-wave':
+        return (
+          <div className="spinner-loading-wave" style={{ color: primaryColor, height: `${size}px` }}>
+            <div style={{ height: `${size * 0.3}px` }} />
+            <div style={{ height: `${size * 0.6}px` }} />
+            <div style={{ height: `${size}px` }} />
+            <div style={{ height: `${size * 0.6}px` }} />
+            <div style={{ height: `${size * 0.3}px` }} />
+          </div>
+        );
 
       default:
         return (
